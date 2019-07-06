@@ -72,6 +72,14 @@ public class Persona {
         this.password = password;
     }
     
+    public Persona(){
+    }
     
+    public Persona(String apellido, String nombre, String login, String psw ){
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.usuario = login;
+        this.password = psw;
+    }
     
 }
