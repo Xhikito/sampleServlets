@@ -15,6 +15,7 @@ import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import vo.Persona;
+import vo.util.JDBCUtil;
 
 /**
  *
@@ -59,8 +60,16 @@ public class LoginServlet extends HttpServlet {
         String login = request.getParameter("login");
         String pwd = request.getParameter("pwd");
         
-        if(usersMap.get(login)!=null && usersMap.get(login).getPassword().equals(pwd)){
-            request.setAttribute("message", "Bienvenido "+  usersMap.get(login).getNombre() + " " + usersMap.get(login).getApellido());
+        Persona persona = null;
+        
+        if((login!=null && login.length()>0) && (pwd!=null && pwd.length()>0)){
+            persona = JDBCUtil.obtenerPersona(login, pwd);
+        }
+        
+        //if(usersMap.get(login)!=null && usersMap.get(login).getPassword().equals(pwd)){
+        if(persona !=null){
+            //request.setAttribute("message", "Bienvenido "+  usersMap.get(login).getNombre() + " " + usersMap.get(login).getApellido());
+            request.setAttribute("message", "Bienvenido "+  persona.getNombre() + " " + persona.getApellido() + " - Usuario: " + persona.getUsuario());
             RequestDispatcher dispacher = request.getRequestDispatcher("/welcome.jsp");
             dispacher.forward(request, response);
         }else{

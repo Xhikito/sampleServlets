@@ -1,6 +1,6 @@
 <%-- 
-    Document   : formPage
-    Created on : Jun 29, 2019, 11:12:43 AM
+    Document   : login
+    Created on : Jul 6, 2019, 9:20:21 AM
     Author     : s206e18
 --%>
 
@@ -76,33 +76,22 @@ a {
 </head>
 <body>
 
-<form action="SubmitFromJSPServlet" method="POST">
+<form action="Login" method="POST">
   <div class="container">
-    <h1>Registrar</h1>
-    <p>Favor ingresar los campos para registrar la cuenta.</p>
+    <h1>Log in</h1>
+    <p>Favor ingresar los campos para hacer log in.</p>
     <hr>
     
-    <label for="fName"><b>Nombre</b></label>
-    <input type="text" placeholder="Ingrese Nombre" name="fName" required>
-    
-    <label for="lName"><b>Apellido</b></label>
-    <input type="text" placeholder="Ingrese Apellido" name="lName" required>
+    <label for="login"><b>login</b></label>
+    <input type="text" placeholder="Ingrese Nombre" name="login" required>
 
-    <label for="email"><b>Login</b></label>
-    <input type="text" placeholder="Ingrese Login" name="login" required>
+    <label for="pwd"><b>Password</b></label>
+    <input type="password" placeholder="Ingrese Password" name="pwd" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Ingrese Password" name="psw" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Ingrese Password" name="psw-repeat" required>
-    <hr>
-
-
-    <button type="submit" class="registerbtn">Guardar</button>
+    <button type="submit" class="registerbtn">Log in</button>
   </div>
   
   <div class="container signin">
-    <p>Ya creaste tu cuenta? <a href="#">Sign in</a>.</p>
+    <p>Ya creaste tu cuenta? <a href="formPage.jsp">Sign in</a>.</p>
   </div>
 </form>
